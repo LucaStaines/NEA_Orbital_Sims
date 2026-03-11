@@ -1,0 +1,228 @@
+(cp fcct14/1862.fop .)
+(cp fcct14/1862.inp .)
+(cp fcct14/1862.rwo mpcobs/)
+(cp fcct14/1862.eq0 epoch/)
+(rm -f AST17.bai AST17.bep)
+(ln -s ../bineph/testout/AST17.bai_431_fcct AST17.bai)
+(ln -s ../bineph/testout/AST17.bep_431_fcct AST17.bep)
+time ./fitobs.x < 1862.inp
+ Run name =
+ JPL planetary ephemerides DE405
+ number of perturbers =           17
+ binary ephemerides file= AST17
+ perturbing asteroids used: 16 major perturbing asteroids plus Pluto
+ ngr_opt =  F
+ first arc asteroid name= 1862
+ not a designation default value  F
+ second arc asteroid name default value 
+ error model file= fcct14
+ compute a grid for the level curves in case of cobweb is  F
+ number of rho values at first iteration =           40
+ number of rho_dot values at first iteration =           40
+ number of rho values at second iteration (also for cobweb) =           80
+ number of rho_dot values at second iteration (also for cobwe =           80
+ sigma max for cobweb =    5.0000000000000000     
+ max absolute magnitude =    34.500000000000000     
+ propag geocentric orbits is  F
+ use b-plane as target plane default value  T
+ mass given in a separate file default value  F
+ limit eccentricity =    1.9999000000000000     
+ max semimajor axis =    2000.0000000000000     
+ min semimajor axis =   0.29999999999999999     
+ max aphelion =    4000.0000000000000     
+ min perihelion =    1.0000000000000000E-003
+ max perihelion default value    0.0000000000000000     
+ shrink of Earth cross section default value    1.0000000000000000     
+ use of constant steps in IP is  F
+ max dist. for inclolinctp =   0.20000000000000001     
+ flag for ADES output file default value            0
+  INPUT OF OBSERVATIONAL DATA, ARC 1
+ first object obs. file name default value 1862
+ first object obs. directory name= mpcobs/
+ mpcobs/1862 ADES files not found, ALL obs will come from either .obs/.rad files or .rwo file.
+ Using .rwo file, but checking .obs,.rad for update.
+ input_obs:         1408  obs from  mpcobs/1862.rwo
+ There are new/changed obs. New numobs=        1408
+RADAR: Using radius =   0.89 km from absolute magnitude.
+  INPUT OF OBSERVATIONAL DATA, ARC 2
+ second object obs. file name default value 
+  INPUT OF ORBITAL ELEMENTS, ARC 1
+ first arc asteroid name default value 1862
+ first arc elements file= epoch/1862.eq0
+ input orbit file correctly read
+ EQU   1.4701327277715599      -0.34799749078067099       0.43862875719101102        3.2422538719424000E-002   4.5038625205886001E-002   3.0542514667761367        54668.051354402000      T   16.059999999999999        8.9999999999999997E-002           0         500
+  INPUT OF ORBITAL ELEMENTS, ARC 2
+ What would you like?
+  1 = input of observational data
+  2 = acquire orbital elements
+  3 = differential corrections
+  4 = first guess for identification
+  5 = state propagation
+  6 = predictions of observations
+  7 = multiple solutions
+  8 = coordinate change
+  9 = attributables
+ 10 = status
+ 11 = date conversion
+ 12 = test derivatives
+ 0 = exit; -1=help
+  selection?  
+  DIFFERENTIAL CORRECTIONS
+  ARC 1
+  select correction and reject mode
+  1 = correct all, autoreject
+  2 = correct all, no rejections
+  3 = constrained solution on LOV (no rejections)
+  4 = correct only some elements (no rejections)
+  5 = compute residuals and covariance (no correction)
+ 0 = exit; -1=help
+  selection?  
+  FULL DIFFERENTIAL CORRECTIONS
+ starting values EQU
+    1.470132728   -0.347997491    0.438628757    0.032422539    0.045038625    3.054251467
+Reading IERS time series:
+        EOPC04 data: 17854 points (from MJD=41335 to MJD=59170)
+ Close approach to EARTH on 2007/05/08.63766 54228.63766 MJD at 0.07142143 au
+ Close approach to EARTH on 2005/11/06.80205 53680.80205 MJD at 0.07524581 au
+ Close approach to EARTH on 1982/05/14.71768 45103.71768 MJD at 0.05869833 au
+ Close approach to EARTH on 1980/11/13.71900 44556.71900 MJD at 0.05548148 au
+ Close approach to EARTH on 1966/05/02.12388 39247.12388 MJD at 0.18631971 au
+ Close approach to EARTH on 1964/10/26.16023 38694.16023 MJD at 0.18543059 au
+ Close approach to VENUS on 1950/06/26.65998 33458.65998 MJD at 0.00994704 au
+ Close approach to EARTH on 1941/05/01.40574 30115.40574 MJD at 0.19845679 au
+ Close approach to EARTH on 1932/05/15.16584 26842.16584 MJD at 0.07500460 au
+ difcor iteration   1
+  RMS residuals =  2.9173D+00   norm corr =  6.1255D+01
+  new elem values
+    1.4701327   -0.3479977    0.4386287    0.0324224    0.0450386    3.0542513
+
+ Close approach to EARTH on 2007/05/08.63764 54228.63764 MJD at 0.07142140 au
+ Close approach to EARTH on 2005/11/06.80202 53680.80202 MJD at 0.07524602 au
+ Close approach to EARTH on 1982/05/14.71766 45103.71766 MJD at 0.05869836 au
+ Close approach to EARTH on 1980/11/13.71897 44556.71897 MJD at 0.05548134 au
+ Close approach to EARTH on 1966/05/02.12386 39247.12386 MJD at 0.18631956 au
+ Close approach to EARTH on 1964/10/26.16021 38694.16021 MJD at 0.18543061 au
+ Close approach to VENUS on 1950/06/26.65999 33458.65999 MJD at 0.00994692 au
+ Close approach to EARTH on 1941/05/01.40561 30115.40561 MJD at 0.19845910 au
+ Close approach to EARTH on 1932/05/15.16551 26842.16551 MJD at 0.07500014 au
+ difcor iteration   2
+  RMS residuals =  5.9255D-01   norm corr =  5.9149D-03
+  new elem values
+    1.4701327   -0.3479977    0.4386287    0.0324224    0.0450386    3.0542513
+
+ REJECTING...
+==== OUTLIER REJECTION =======
+Residual norm =  5.92547E-01
+Chi2 threshold =  3.02367E+00
+No. of observations:
+          total     = 1408
+          selected  = 1388
+          rejected  =    4
+          recovered =    0
+Outlier rejection pass   1 after   2 single differential correction passes.
+There were   4 changes.
+ Close approach to EARTH on 2007/05/08.63764 54228.63764 MJD at 0.07142140 au
+ Close approach to EARTH on 2005/11/06.80202 53680.80202 MJD at 0.07524602 au
+ Close approach to EARTH on 1982/05/14.71766 45103.71766 MJD at 0.05869836 au
+ Close approach to EARTH on 1980/11/13.71897 44556.71897 MJD at 0.05548134 au
+ Close approach to EARTH on 1966/05/02.12386 39247.12386 MJD at 0.18631956 au
+ Close approach to EARTH on 1964/10/26.16021 38694.16021 MJD at 0.18543061 au
+ Close approach to VENUS on 1950/06/26.65999 33458.65999 MJD at 0.00994692 au
+ Close approach to EARTH on 1941/05/01.40561 30115.40561 MJD at 0.19845910 au
+ Close approach to EARTH on 1932/05/15.16551 26842.16551 MJD at 0.07500014 au
+ difcor iteration   1
+  RMS residuals =  5.8120D-01   norm corr =  1.0378D+00
+  new elem values
+    1.4701327   -0.3479977    0.4386287    0.0324224    0.0450386    3.0542513
+
+ Close approach to EARTH on 2007/05/08.63764 54228.63764 MJD at 0.07142137 au
+ Close approach to EARTH on 2005/11/06.80202 53680.80202 MJD at 0.07524602 au
+ Close approach to EARTH on 1982/05/14.71766 45103.71766 MJD at 0.05869838 au
+ Close approach to EARTH on 1980/11/13.71897 44556.71897 MJD at 0.05548133 au
+ Close approach to EARTH on 1966/05/02.12386 39247.12386 MJD at 0.18631954 au
+ Close approach to EARTH on 1964/10/26.16021 38694.16021 MJD at 0.18543063 au
+ Close approach to VENUS on 1950/06/26.65999 33458.65999 MJD at 0.00994694 au
+ Close approach to EARTH on 1941/05/01.40563 30115.40563 MJD at 0.19845859 au
+ Close approach to EARTH on 1932/05/15.16557 26842.16557 MJD at 0.07500105 au
+ difcor iteration   2
+  RMS residuals =  5.7918D-01   norm corr =  4.1378D-04
+  new elem values
+    1.4701327   -0.3479977    0.4386287    0.0324224    0.0450386    3.0542513
+
+ REJECTING...
+==== OUTLIER REJECTION =======
+Residual norm =  5.79177E-01
+Chi2 threshold =  2.48444E+00
+No. of observations:
+          total     = 1408
+          selected  = 1384
+          rejected  =    0
+          recovered =    0
+Outlier rejection pass   2 after   2 single differential correction passes.
+There were   0 changes.
+  RMS of weighed residuals is   0.57917739120125300     
+Absol Magnitude: Old=16.06 New=16.06
+no. magnitude obs.= 844 with RMS  0.45
+no. rejected obs.=   2 in   11 passes.
+
+orb.dist.      dist.n+  dist.n-
+ 0.02552    0 -0.11729  0.18607
+
+ What would you like?
+  1 = input of observational data
+  2 = acquire orbital elements
+  3 = differential corrections
+  4 = first guess for identification
+  5 = state propagation
+  6 = predictions of observations
+  7 = multiple solutions
+  8 = coordinate change
+  9 = attributables
+ 10 = status
+ 11 = date conversion
+ 12 = test derivatives
+ 0 = exit; -1=help
+  selection?  
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+6.74user 0.24system 0:06.36elapsed 109%CPU (0avgtext+0avgdata 16000maxresident)k
+9464inputs+1368outputs (7major+2959minor)pagefaults 0swaps
+(diff 1862.fel testout/1862.fel || echo 'Files differ')
+7c7
+<  EQU   1.4701327303925797E+00  -0.347997669875577   0.438628666616842    0.032422439935600    0.045038609433209 174.9957104345763
+---
+>  EQU   1.4701327303133416E+00  -0.347997673402040   0.438628665083009    0.032422437795482    0.045038613504679 174.9957100982316
+13c13
+< ! EIG   7.95740E-11   7.05601E-10   1.54510E-09   1.35400E-08   3.24677E-08   3.78355E-08
+---
+> ! EIG   7.95739E-11   7.05601E-10   1.54510E-09   1.35400E-08   3.24677E-08   3.78355E-08
+15,28c15,28
+<  COV   7.287487788309315E-19  1.686847387560195E-17  4.010003873538131E-18
+<  COV  -1.180745437975279E-17  8.034570380442557E-18  8.860874257817751E-16
+<  COV   5.140039163692985E-16  1.238530276329187E-16 -9.916901589635630E-17
+<  COV   2.675559007717873E-16  3.266492051884322E-14  3.299574962175572E-17
+<  COV  -3.335633234794870E-18  8.481045281079094E-17  7.713628243455512E-15
+<  COV   8.901625187577464E-16  3.923122972832361E-16  1.452870707789209E-15
+<  COV   5.344943485820476E-16  1.603306011722873E-14  2.296363514161846E-12
+<  NOR   1.553323842935849E+20 -1.624745125877229E+19  8.297507470965191E+18
+<  NOR  -8.478998614932950E+16  3.080040253752909E+17  1.412079068998627E+17
+<  NOR   2.894427744027420E+18 -1.302288369477997E+18  3.218790806386310E+17
+<  NOR  -3.951725973496026E+17 -2.797294238409326E+16  1.016879595551126E+18
+<  NOR  -9.061686708333670E+16  9.288759682823590E+16  1.131588264893364E+16
+<  NOR   8.572009084609626E+16 -1.006013065346990E+17 -3.593347387093073E+15
+<  NOR   1.221343085115783E+17  4.401235482827990E+15  2.773865152778575E+14
+---
+>  COV   7.287488579757116E-19  1.686847120926070E-17  4.010003600843116E-18
+>  COV  -1.180745444928167E-17  8.034574250593214E-18  8.860870718733954E-16
+>  COV   5.140037446298903E-16  1.238530013875658E-16 -9.916891740900795E-17
+>  COV   2.675559917693260E-16  3.266490580970769E-14  3.299574582102208E-17
+>  COV  -3.335611661976569E-18  8.481046945841306E-17  7.713625988235384E-15
+>  COV   8.901625625028793E-16  3.923122570352937E-16  1.452881253301630E-15
+>  COV   5.344943058008415E-16  1.603306701672967E-14  2.296362358658831E-12
+>  NOR   1.553324637576804E+20 -1.624745069554624E+19  8.297507776954657E+18
+>  NOR  -8.478748807862707E+16  3.080008658405875E+17  1.412078862118941E+17
+>  NOR   2.894427737277158E+18 -1.302288351856251E+18  3.218790994917962E+17
+>  NOR  -3.951726081490713E+17 -2.797294211060531E+16  1.016879589558650E+18
+>  NOR  -9.061685505392694E+16  9.288757264609963E+16  1.131588222839142E+16
+>  NOR   8.572016948283608E+16 -1.006014018262263E+17 -3.593347983846824E+15
+>  NOR   1.221344239785517E+17  4.401236108070472E+15  2.773865133483840E+14
+Files differ
