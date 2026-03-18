@@ -26,11 +26,11 @@ The project involves three main stages:
 - Asteroid Perturbations: AST17 (16 major asteroids + Pluto)
 
 ## References
-- M. Fenucci and B. Novaković: 2022. Mercury and OrbFit packages for numerical integration of planetary systems: implementation of the Yarkovsky and YORP effects, Serbian Astronomical Journal 204, pp. 51-63
+- M. Fenucci and B. Novaković: 2022. *Mercury and OrbFit packages for numerical integration of planetary systems: implementation of the Yarkovsky and YORP effects*, Serbian Astronomical Journal 204, pp. 51-63
 
 ## Author
 
-Luca Staines
-MPhys
-Swansea University
+Luca Staines<br>
+MPhys (Expected 2026)<br>
+Swansea University<br>
 Luca.staines@icloud.com
