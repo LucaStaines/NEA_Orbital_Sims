@@ -1,3 +1,6 @@
+#This code has been updated and added into the settings extraction code.#
+#So this code is now redunant but is here to show the development history of the project workflow.#
+
 from astropy.io import fits
 
 #LCO site to MPC code mapping#
