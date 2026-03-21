@@ -26,23 +26,50 @@ LCO_INSTRUMENTS = {
 }
 
 #Maps LCO site to MPC codes#
-#Up to date as of /03/2026#
-#Codes can be changed or new codes added so check against: https://www.minorplanetcenter.net/iau/lists/ObsCodesF.html#
+#Up to date as of 21/03/2026#
+#Codes can be changed or new codes added so check against: https://lco.global/observatory/sites/mpccodes/#
+#Note: SOAR (sor, 4m0a, I33) not included as it lacks ENCID in headers#
 LCO_MPC_CODES = {
-    ('coj', '2m0'): 'Q63',   #Siding Spring, Australia#
-    ('coj', '1m0'): 'Q64',
-    ('coj', '0m4'): 'Q58',
-    ('cpt', '1m0'): 'L09',   #Sutherland, South Africa#
-    ('cpt', '0m4'): 'L06',
-    ('tfn', '2m0'): 'Z17',   #Tenerife, Spain#
-    ('tfn', '1m0'): 'Z31',
-    ('tfn', '0m4'): 'Z21',
-    ('lsc', '1m0'): 'W86',   #Cerro Tololo, Chile#
-    ('lsc', '0m4'): 'W85',
-    ('elp', '1m0'): 'V37',   #McDonald, Texas#
-    ('elp', '0m4'): 'V39',
-    ('ogg', '2m0'): 'T04',   #Haleakala, Maui#
-    ('ogg', '0m4'): 'T03',
+    # Haleakala, Maui#
+    ('ogg', 'clma', '2m0a'): {'code': 'F65', 'name': 'Haleakala-Faulkes Telescope North'},
+    ('ogg', 'clma', '0m4b'): {'code': 'T04', 'name': 'Haleakala-LCO Clamshell #1'},
+    ('ogg', 'clma', '0m4c'): {'code': 'T03', 'name': 'Haleakala-LCO Clamshell #2'},
+    
+    # McDonald Observatory, Texas#
+    ('elp', 'doma', '1m0a'): {'code': 'V37', 'name': 'McDonald Observatory-LCO A'},
+    ('elp', 'domb', '1m0a'): {'code': 'V39', 'name': 'McDonald Observatory-LCO B'},
+    ('elp', 'aqwa', '0m4a'): {'code': 'V38', 'name': 'McDonald Observatory-LCO ELP Aqawan A #1'},
+    ('elp', 'aqwb', '0m4a'): {'code': 'V45', 'name': 'McDonald Observatory-LCO ELP Aqawan B #1'},
+    ('elp', 'aqwb', '0m4b'): {'code': 'V47', 'name': 'McDonald Observatory-LCO ELP Aqawan B #2'},
+    
+    # Cerro Tololo, Chile#
+    ('lsc', 'doma', '1m0a'): {'code': 'W85', 'name': 'Cerro Tololo-LCO A'},
+    ('lsc', 'domb', '1m0a'): {'code': 'W86', 'name': 'Cerro Tololo-LCO B'},
+    ('lsc', 'domc', '1m0a'): {'code': 'W87', 'name': 'Cerro Tololo-LCO C'},
+    ('lsc', 'aqwa', '0m4a'): {'code': 'W89', 'name': 'Cerro Tololo-LCO Aqawan A #1'},
+    ('lsc', 'aqwb', '0m4a'): {'code': 'W79', 'name': 'Cerro Tololo-LCO Aqawan B #1'},
+    
+    # Sutherland, South Africa#
+    ('cpt', 'doma', '1m0a'): {'code': 'K91', 'name': 'Sutherland-LCO A'},
+    ('cpt', 'domb', '1m0a'): {'code': 'K92', 'name': 'Sutherland-LCO B'},
+    ('cpt', 'domc', '1m0a'): {'code': 'K93', 'name': 'Sutherland-LCO C'},
+    ('cpt', 'aqwa', '0m4a'): {'code': 'L09', 'name': 'Sutherland-LCO Aqawan A #1'},
+    
+    # Siding Spring, Australia#
+    ('coj', 'clma', '0m4a'): {'code': 'Q58', 'name': 'Siding Spring-LCO Clamshell #1'},
+    ('coj', 'clma', '0m4b'): {'code': 'Q59', 'name': 'Siding Spring-LCO Clamshell #2'},
+    ('coj', 'doma', '1m0a'): {'code': 'Q63', 'name': 'Siding Spring-LCO A'},
+    ('coj', 'domb', '1m0a'): {'code': 'Q64', 'name': 'Siding Spring-LCO B'},
+    ('coj', 'clma', '2m0a'): {'code': 'E10', 'name': 'Siding Spring-Faulkes Telescope South'},
+    
+    # Tenerife, Spain#
+    ('tfn', 'doma', '1m0a'): {'code': 'Z31', 'name': 'Tenerife Observatory-LCO A'},
+    ('tfn', 'domb', '1m0a'): {'code': 'Z24', 'name': 'Tenerife Observatory-LCO B'},
+    ('tfn', 'aqwa', '0m4a'): {'code': 'Z21', 'name': 'Tenerife-LCO Aqawan A #1'},
+    ('tfn', 'aqwa', '0m4b'): {'code': 'Z17', 'name': 'Tenerife-LCO Aqawan A #2'},
+    
+    # Wise Observatory, Israel#
+    ('tlv', 'doma', '1m0a'): {'code': '097', 'name': 'Wise Observatory, Mitzpeh Ramon'},
 }
 
 
@@ -71,14 +98,21 @@ def extract_astrometrica_settings(fits_file):
 
         #MPC CODE#
         
-        if settings['site'] and settings['telescope']:
-            site = settings['site'].lower()
-            tel_class = settings['telescope'].split('-')[0]
-            settings['mpc_code'] = LCO_MPC_CODES.get(
-                (site, tel_class), f"UNKNOWN ({site}, {tel_class})"
-            )
+        site = header.get('SITEID', '').lower()
+        encid = header.get('ENCID', '').lower()
+        telid = header.get('TELID', '').lower()
+     
+        settings['site'] = site
+        settings['encid'] = encid
+        settings['telid'] = telid
+     
+        mpc_lookup = LCO_MPC_CODES.get((site, encid, telid), None)
+        if mpc_lookup:
+            settings['mpc_code'] = mpc_lookup['code']
+            settings['mpc_name'] = mpc_lookup['name']
         else:
-            settings['mpc_code'] = 'UNKNOWN'
+            settings['mpc_code'] = f"UNKNOWN ({site}, {encid}, {telid})"
+            settings['mpc_name'] = 'UNKNOWN'
 
         #FOCAL LENGTH#
         
@@ -139,12 +173,13 @@ def extract_astrometrica_settings(fits_file):
 
 def print_astrometrica_settings(s):
 
-    print("=" * 60)
     print("COPY THESE VALUES INTO ASTROMETRICA")
-    print("=" * 60)
 
     print("\n LOCATION")
     print(f"  MPC Code:        {s.get('mpc_code', '???')}")
+    print(f"  MPC Name:        {s.get('mpc_name', '???')}")
+    print(f"  Site/Enc/Tel:    {s.get('site','?')}/{s.get('encid','?')}/{s.get('telid','?')}")
+    
     lon = s.get('longitude', None)
     if lon is not None:
         direction = 'West' if lon < 0 else 'East'
@@ -181,12 +216,11 @@ def print_astrometrica_settings(s):
     print(f"  Exposure:        {s.get('exptime', '???')} seconds")
     print(f"  Pixel Scale:     {s.get('pixscale', '???')} arcsec/px")
     print(f"  Image Size:      {s.get('naxis1','?')} x {s.get('naxis2','?')}")
-    print("=" * 60)
 
 #Add your own path to as many images as needed#
 if __name__ == '__main__':
     test_files = [
-        r"C:\Users\lucas\Downloads\eros_60s-expos_converted_2d_image_1.fits",
+        r"\path\to\image1.fits",
        # r"\path\to\image2.fits",
        # r"\path\to\image3.fits",
     ]
