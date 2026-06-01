@@ -28,6 +28,9 @@ The project involves three main stages:
 ## References
 - M. Fenucci and B. Novaković: 2022. *Mercury and OrbFit packages for numerical integration of planetary systems: implementation of the Yarkovsky and YORP effects*, Serbian Astronomical Journal 204, pp. 51-63
 
+## Versioning
+This repository represents the state of the codebase at the time of MPhys dissertation submission (01/06/2026). Subsequent work is not part of the assessed submission and is recorded in the `future_work` file.
+
 ## Author
 
 Luca Staines<br>
