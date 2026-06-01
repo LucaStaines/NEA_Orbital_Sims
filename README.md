@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This repository contains the computational work for my MSc project investigating 
+This repository contains the computational work for my MPhys project investigating 
 the long-term orbital evolution of newly discovered Near-Earth Asteroids (NEAs). 
 The project involves three main stages:
 
