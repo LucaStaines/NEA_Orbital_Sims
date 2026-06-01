@@ -21,3 +21,7 @@ The OrbFit source code was compiled successfully using gfortran 13.3.0, producin
 11/03/2026
 
 The orbit9.x numerical integrator was validated by running the built-in test case, which integrated 2 main-belt asteroids and 4 giant planets backwards over 20,000 years using a 12th-order multistep method with automatic stepsize control. For the simulations I will run using my own data I will change dt from -200 to 200 or a larger step and increase n_out to simulate over the Myr scales I want to look at. The integration completed successfully and the output agreed with the DE431 reference solution to 7–8 significant figures, with small differences attributable to the use of DE405 for the barycentric initial conditions. All input files and output data were saved to the project GitHub repository under results/orbit9_validation_20kyr/.
+
+01/06/2026 - Final Dissertation Update
+
+The repository has been finalised in preparation for dissertation submission. All core scripts used in the computational pipeline have now been uploaded and the research log has been updated to reflect the completed development and validation work. This version represents the final state of the project as submitted for assessment.
